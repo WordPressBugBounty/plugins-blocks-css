@@ -10,7 +10,7 @@
  * Plugin Name:       Blocks CSS: CSS Editor for Gutenberg Blocks
  * Plugin URI:        https://github.com/Codeinwp/otter-blocks
  * Description:       Blocks CSS allows you add custom CSS to your Blocks straight from the Block Editor (Gutenberg).
- * Version:           3.1.1
+ * Version:           3.1.2
  * Author:            ThemeIsle
  * Author URI:        https://themeisle.com
  * License:           GPL-3.0+
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 define( 'BLOCKS_CSS_URL', plugins_url( '/', __FILE__ ) );
-define( 'BLOCKS_CSS_PATH', dirname( __FILE__ ) );
+define( 'BLOCKS_CSS_PATH', __DIR__ );
 define( 'BLOCKS_CSS_PRODUCT_SLUG', basename( BLOCKS_CSS_PATH ) );
 
 add_action(
@@ -35,7 +35,7 @@ add_action(
 	function () {
 		// call this only if Gutenberg is active.
 		if ( function_exists( 'register_block_type' ) ) {
-			require_once dirname( __FILE__ ) . '/class-blocks-css.php';
+			require_once __DIR__ . '/class-blocks-css.php';
 
 			if ( class_exists( '\ThemeIsle\GutenbergBlocks\Blocks_CSS' ) ) {
 				\ThemeIsle\GutenbergBlocks\Blocks_CSS::instance();
